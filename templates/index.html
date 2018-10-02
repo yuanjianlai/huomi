@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Homie let's rock it</title>
+
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js">
+    </script>
+    <script type="text/javascript" src="{% static 'src/js/home-directives.js' %}">
+    </script>
+    <script type="text/javascript" src="{% static 'src/js/customer-directives.js' %}">
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+    <div ng-app="homie" class="homie">
+      <home-header></home-header>
+      <customer-view></customer-view>
+      <home-banner></home-banner>
+    </div>
+  </body>
+</html>
