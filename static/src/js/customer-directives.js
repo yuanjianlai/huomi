@@ -1,5 +1,5 @@
 function CustomerViewController($scope) {
-  $scope.name = 'yuanjianl';
+  this.username = "yuanjianl";
 };
 
 angular.module('homie')
