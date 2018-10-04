@@ -13,7 +13,7 @@ angular.module('homie', [])
   return {
     restrict: 'E',
     scope: true,
-    templateUrl: 'static/templates/home/home-banner.html',
+    templateUrl: '/static/templates/home/home-banner.html',
     controller: HomeBannerController
   };
 })
@@ -21,7 +21,7 @@ angular.module('homie', [])
   return {
     restrict: 'E',
     scope: true,
-    templateUrl: 'static/templates/home/home-header.html',
+    templateUrl: '/static/templates/home/home-header.html',
     controller: HomeHeaderController
-  }
+  };
 });

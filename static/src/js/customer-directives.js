@@ -9,5 +9,5 @@ angular.module('homie')
       scope: true,
       templateUrl: 'static/templates/customer/view.html',
       controller: CustomerViewController
-  }
+  };
 });

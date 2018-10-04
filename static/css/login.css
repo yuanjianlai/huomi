@@ -1,0 +1,18 @@
+.login-img {
+  width: 50%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/assets/images/hero_image.jpg");
+  float: right;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+}
+
+.login-form {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  height: 100%;
+  background-color: black;
+}

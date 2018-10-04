@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr" style="margin:0; height:100%; width:100%">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <link rel="stylesheet"
+      href="{% static 'css/login.css' %}" >
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js">
+  </script>
+  <script type="text/javascript" src="{% static 'src/js/login-directives.js' %}">
+  </script>
+  <body style="margin:0; height:100%; width:100%" ng-app="login">
+    <login-view style="margin:0; height:100%; width:100%"></login-view>
+  </body>
+</html>
