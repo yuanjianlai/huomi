@@ -11,3 +11,6 @@ source huomi_env/bin/activate
 
 Install required version set:
 pip install -r requirements.txt
+
+Before run server:
+bash configure.sh
