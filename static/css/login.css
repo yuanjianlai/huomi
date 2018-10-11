@@ -2,7 +2,7 @@
   width: 50%;
   height: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/assets/images/hero_image.jpg");
-  float: right;
+  float: left;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,9 +10,54 @@
 }
 
 .login-form {
-  display: inline-block;
+  display: table;
   float: left;
   width: 50%;
   height: 100%;
-  background-color: black;
+  text-align: center;
+}
+
+.login-form-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.form_title {
+  color: #474c62;
+}
+
+.form-control {
+  width: 60% !important;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.login-next-btn {
+  width: 60% !important;
+  margin-top: 30px;
+  background-color: #f3e939;
+  border-color: #f3e939;
+}
+
+.login-form-logo {
+  width: 20%;
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+  margin-left: 20%;
+}
+
+
+.login-form-logo img{
+  width: 100%;
+}
+
+@media only screen and (max-width: 868px) {
+    .login-img {
+        display: none;
+    }
+    .login-form {
+        width: 100%;
+    }
+    .login-form-logo {
+      margin: auto;
+    }
 }
