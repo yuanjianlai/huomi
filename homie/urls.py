@@ -16,9 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
+from homie.views import login_view
+from homie.views import register_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', TemplateView.as_view(template_name='index.html')),
-    url(r'^login/', TemplateView.as_view(template_name='login.html'))
+    url(r'^login/', TemplateView.as_view(template_name='login.html')),
+    url(r'^account/authenticate/', login_view),
+    url(r'^account/register/', register_view)
 ]
