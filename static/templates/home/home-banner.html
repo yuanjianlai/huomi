@@ -1,11 +1,21 @@
 <div class="home_banner">
   <div class="sign_up_box">
     <form class="sign_up_trainee_form">
-        <h3 class="margin-bottom-20">Get Personalized Training by a simple tap.</h3>
+        <h3 class="margin-bottom-20 sign_up_trainee_text">Get Personalized Training by a simple tap.</h3>
+        <h3 class="margin-bottom-20 sign_up_trainer_text non-display">TURN SWEAT INTO MONEY.</h3>
         <input type="text" name="" class="form-control margin-bottom-20" placeholder="Enter mobile phone number">
-        <input type="password" class="form-control margin-bottom-20" placeholder="Password">
-        <button type="submit" class="login-next-btn btn btn-primary margin-bottom-20">Sign up to exercise</button>
-        <button type="button" class="btn btn-link trainer_sign_up_link margin-bottom-20">APPLY TO BE A TRAINER</button>
+        <input type="text" name="" class="form-control margin-bottom-20 sign_up_box_firstname non-display" placeholder="FirstName">
+        <input type="text" name="" class="form-control margin-bottom-20 sign_up_box_lastname non-display" placeholder="LastName">
+        <input type="text" name="" class="form-control margin-bottom-20 sign_up_box_email non-display" placeholder="Email">
+        <input type="text" name="" class="form-control margin-bottom-20 sign_up_box_city non-display" placeholder="City">
+        <input type="password" class="form-control margin-bottom-20 sign_up_box_password" placeholder="Password">
+        <button type="submit" class="login-next-btn btn btn-primary trainee_sign_up_btn">Sign up to exercise</button>
+        <button type="submit" class="login-next-btn btn btn-primary trainer_sign_up_btn non-display">Become A Trainer</button>
+        <button type="button" class="btn btn-link trainer_sign_up_link" ng-click="bannerCtrl.showTrainerSignUpBox()">APPLY TO BE A TRAINER</button>
+        <button type="button" class="btn btn-link trainee_sign_up_link non-display" ng-click="bannerCtrl.showTraineeSignUpBox()">Sign UP TO EXERCISE</button>
+    </form>
+    <form>
+      <h3 class="margin-bottom-20"></h3>
     </form>
   </div>
   <div class="hero_search_box">

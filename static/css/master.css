@@ -91,3 +91,16 @@ body, html {
 .trainer_sign_up_link{
   color: #ffffff;
 }
+
+.non-display {
+  display: none;
+}
+
+.sign_up_box_firstname {
+  width: 55%;
+  float: left;
+}
+.sign_up_box_lastname {
+  width: 40%;
+  float: right;
+}
