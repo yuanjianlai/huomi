@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js">
+  </script>
+  <script type="text/javascript" src="{% static 'src/js/feed-directives.js' %}">
+  </script>
+  <body ng-app="feed", ng-controller="feedController">
+    <button type="submit" ng-click="logout()"
+      class="login-next-btn btn btn-primary margin-bottom-20">
+      Sign out
+    </button>
+    <h1>Fake feed flow</h1>
+  </body>
+</html>

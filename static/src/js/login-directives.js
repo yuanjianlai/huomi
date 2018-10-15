@@ -1,25 +1,21 @@
-function LoginViewController($scope, $http, $cookies, $window) {
-  this.username = "";
+function LoginViewController($scope, $http, $window, $location) {
   this.password = "";
+  this.phoneNumber = null;
+  this.enableSession = true;
   this.error = null;
   this.authenticate = function() {
-    // $window.location.href='/'
-    $http.post('/account/authenticate/', {'username': this.username, 'password': this.password}).then(function(response) {
-      if (response.data == 'login.success') {
-        $window.location.href='/';
-      } else if (response.data == 'login.failed.not_found'){
-        //TODO: add warning to warn login failure.
-        console.log(response.data);
-      }
-    });
-  };
-
-  this.register = function() {
-    $http.post('/account/register/', {'username': this.username, 'password': this.password}).then(function (response) {
-      console.log(response)
-      $window.location.href='/'
-    })
-  }
+    username = 'pn-' + this.phoneNumber;
+    $http.post('/account/login/',
+      {'username': username, 'password': this.password})
+      .then(function(response) {
+        if (response.data == 'login.failed.not_found') {
+          //TODO: add warning to warn login failure.
+          console.log(response.data);
+        } else {
+          $window.location.href='/feed/'
+        }
+      });
+    };
 };
 
 angular.module('login', ['ngCookies'])
