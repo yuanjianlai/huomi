@@ -5,13 +5,27 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 import json
 
-def home_view(request):
+def homeView(request):
     user = auth.get_user(request)
     if user and user.is_active:
         if user.is_authenticated:
             return redirect('/feed/', None)
         else:
             return redirect('/login/', None)
+    else:
+        return render(request, 'index.html', None)
+
+def loginView(request):
+    user = auth.get_user(request)
+    if user and user.is_active and user.is_authenticated:
+        return redirect('/feed/', None)
+    else:
+        return render(request,'login.html', None)
+
+def registerView(request):
+    user = auth.get_user(request)
+    if user and user.is_active and user.is_authenticated:
+        return redirect('/feed/', None)
     else:
         return render(request, 'index.html', None)
 
