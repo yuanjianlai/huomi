@@ -1,9 +1,2 @@
 *.pyc
-../homie/__init__.pyc
-../homie/settings.pyc
-../homie/urls.pyc
-../homie/wsgi.pyc
-static/.DS_Store
-static/assets/.DS_Store
-static/assets/images/.DS_Store
-.DS_Store
+*.DS_Store
