@@ -14,7 +14,7 @@ def homeView(request):
         else:
             return redirect('/login/', None)
     else:
-        return render(request, 'index.html', None)
+        return render(request, 'home.html', None)
 
 
 def loginView(request):
@@ -30,7 +30,7 @@ def registerView(request):
     if user and user.is_active and user.is_authenticated:
         return redirect('/feed/', None)
     else:
-        return render(request, 'index.html', None)
+        return render(request, 'home.html', None)
 
 
 def login(request):

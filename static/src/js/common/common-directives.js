@@ -8,12 +8,13 @@ class NavigationButton {
   }
 }
 class PostButton {
-  constructor(name, link, data) {
+  constructor(name, link, data, callback) {
     this.name = name;
     this.link = link;
     this.data = data;
     this.method = "POST";
     this.type = "ajax";
+    this.callback = callback;
   }
 }
 
@@ -33,8 +34,8 @@ angular.module("common", []).directive("header", function() {
             url: button.link,
             data: button.data
           }).then(function(response) {
-            console.log(response);
-            if ((response.status = 302)) {
+            if (button.callback) {
+              button.callback(response);
             }
           });
         }

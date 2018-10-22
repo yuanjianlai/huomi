@@ -4,15 +4,13 @@
       <h3 class="margin-bottom-20 sign_up_trainee_text">Get Personalized Training by a simple tap.</h3>
       <h3 class="margin-bottom-20 sign_up_trainer_text non-display">TURN SWEAT INTO MONEY.</h3>
       <input type="text" ng-model="bannerCtrl.phoneNumber" class="form-control margin-bottom-20" placeholder="Enter mobile phone number">
-      <input type="text" name="" class="form-control margin-bottom-20 sign_up_box_firstname non-display" placeholder="FirstName">
-      <input type="text" name="" class="form-control margin-bottom-20 sign_up_box_lastname non-display" placeholder="LastName">
-      <input type="text" name="" class="form-control margin-bottom-20 sign_up_box_email non-display" placeholder="Email">
-      <input type="text" name="" class="form-control margin-bottom-20 sign_up_box_city non-display" placeholder="City">
+      <input type="text" ng-if="homeViewCtrl.isTrainer" name="" class="form-control margin-bottom-20 sign_up_box_firstname" placeholder="FirstName">
+      <input type="text" ng-if="homeViewCtrl.isTrainer" name="" class="form-control margin-bottom-20 sign_up_box_lastname" placeholder="LastName">
+      <input type="text" ng-if="homeViewCtrl.isTrainer" name="" class="form-control margin-bottom-20 sign_up_box_email" placeholder="Email">
+      <input type="text" ng-if="homeViewCtrl.isTrainer" name="" class="form-control margin-bottom-20 sign_up_box_city" placeholder="City">
       <input type="password" ng-model="bannerCtrl.password" class="form-control margin-bottom-20 sign_up_box_password" placeholder="Password">
-      <button type="submit" class="login-next-btn btn btn-primary trainee_sign_up_btn" ng-click="bannerCtrl.register()">Sign up to exercise</button>
-      <button type="submit" class="login-next-btn btn btn-primary trainer_sign_up_btn non-display">Become A Trainer</button>
-      <button type="button" class="btn btn-link trainer_sign_up_link" ng-click="bannerCtrl.showTrainerSignUpBox()">APPLY TO BE A TRAINER</button>
-      <button type="button" class="btn btn-link trainee_sign_up_link non-display" ng-click="bannerCtrl.showTraineeSignUpBox()">Sign UP TO EXERCISE</button>
+      <button type="submit" class="login-next-btn btn btn-primary trainee_sign_up_btn" ng-click="bannerCtrl.register()">{{homeViewCtrl.getRegisterButtonMessage()}}</button>
+      <button type="button" class="btn btn-link trainer_sign_up_link" ng-click="homeViewCtrl.onSwitchClick()">{{homeViewCtrl.getSwitchMessage()}}</button>
     </form>
   </div>
   <div class="hero_search_box">
