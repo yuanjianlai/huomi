@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse, JsonResponse
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect
 import json
 
@@ -45,19 +46,42 @@ def login(request):
         return HttpResponse("login.failed.not_found")
 
 
+def validate_registration(request):
+    #TODO: add logic to validate registration request.
+    return True
+
+
 def register(request):
     if request.method == 'POST':
+        if not validate_registration(request):
+            return JsonResponse({
+                "success": False,
+                "reason": "validation_error",
+                "field": "testField"
+            })
         data = json.loads(request.body)
         username = data.get('username', '')
         pwd = data.get('password', '')
+        firstName = data.get('firstName', '')
+        lastName = data.get('lastName', '')
+        email = data.get('email', None)
+        city = data.get('city', '')
+        isTrainer = data.get('isTrainer', False)
         try:
-            user = User.objects.get(username=username)
-            return HttpResponse("register.failed.user_exists")
-        except User.DoesNotExist:
-            user = User.objects.create_user(username=username, password=pwd)
+            user = get_user_model().objects.get(username=username)
+            return JsonResponse({"success": False, "reason": "user_exists"})
+        except get_user_model().DoesNotExist:
+            user = get_user_model().objects.create_user(
+                username=username,
+                password=pwd,
+                first_name=firstName,
+                last_name=lastName,
+                email=email,
+                city=city,
+                is_trainer=isTrainer)
             user.save()
             auth.login(request, user)
-            return HttpResponse("register.success")
+            return JsonResponse({"success": True})
 
 
 def logout(request):

@@ -1,16 +1,28 @@
 function HomeBannerController($scope, $http, $window) {
+  this.phoneNumber = "";
   this.password = "";
-  this.phoneNumber = null;
+  this.firstName = "";
+  this.lastName = "";
+  this.email = "";
+  this.city = "";
   this.register = function() {
     username = "pn-" + this.phoneNumber;
     $http
-      .post("/account/register/", {username: username, password: this.password})
+      .post("/account/register/", {
+        username: username,
+        password: this.password,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        isTrainer: $scope.homeViewCtrl.isTrainer
+      })
       .then(function(response) {
-        if (response.data == "register.failed.user_exists") {
-          //TODO: add warning to warn registration failure.
-          console.log(response.data);
-        } else {
+        if (response.data.success) {
           $window.location.href = "/profile/";
+        } else if (response.data.reason == "validation_error") {
+          //TODO: add warning to warn registration failure.
+        } else if (response.data == "user_exists") {
+          //TODO: add warning to warn data validation failure.
         }
       });
   };
@@ -41,7 +53,7 @@ angular
           return this.isTrainer ? "Become A Trainer" : "Sign up to exercise";
         };
         this.headerButtons = [
-          new NavigationButton("Log in", "/login/", {}, null)
+          new NavigationButton("登陆", "/login/", {}, null)
         ];
       },
       controllerAs: "homeViewCtrl"
