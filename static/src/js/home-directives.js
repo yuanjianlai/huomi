@@ -111,13 +111,25 @@ function HomeBannerController($scope, $http, $window) {
     traineeSignUpBtn.removeClass("non-display");
   };
 }
-function HomeHeaderController($scope) {}
 
 angular
-  .module("homie", [])
+  .module("homie", ["common"])
   .config(function($httpProvider) {
     $httpProvider.defaults.xsrfCookieName = "csrftoken";
     $httpProvider.defaults.xsrfHeaderName = "X-CSRFToken";
+  })
+  .directive("homeView", function() {
+    return {
+      restrict: "E",
+      scope: true,
+      templateUrl: "/static/templates/home/view.html",
+      controller: function() {
+        this.headerButtons = [
+          new NavigationButton("Log in", "/login/", {}, null)
+        ];
+      },
+      controllerAs: "homeViewCtrl"
+    };
   })
   .directive("homeBanner", function() {
     return {
@@ -126,13 +138,5 @@ angular
       templateUrl: "/static/templates/home/home-banner.html",
       controller: HomeBannerController,
       controllerAs: "bannerCtrl"
-    };
-  })
-  .directive("homeHeader", function() {
-    return {
-      restrict: "E",
-      scope: true,
-      templateUrl: "/static/templates/home/home-header.html",
-      controller: HomeHeaderController
     };
   });

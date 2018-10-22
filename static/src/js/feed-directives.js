@@ -1,5 +1,5 @@
 angular
-  .module("feed", [])
+  .module("feed", ["common"])
   .config(function($httpProvider) {
     $httpProvider.defaults.xsrfCookieName = "csrftoken";
     $httpProvider.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -15,4 +15,17 @@ angular
         });
       };
     }
-  ]);
+  ])
+  .directive("feedView", function() {
+    return {
+      restrict: "E",
+      scope: true,
+      templateUrl: "/static/templates/feed/view.html",
+      controller: function($scope, $window) {
+        this.headerButtons = [
+          new NavigationButton("Log out", "/account/logout/", {})
+        ];
+      },
+      controllerAs: "feedCtrl"
+    };
+  });

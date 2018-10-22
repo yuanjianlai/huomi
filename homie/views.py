@@ -62,4 +62,4 @@ def register(request):
 
 def logout(request):
     auth.logout(request)
-    return HttpResponse("logout.success")
+    return redirect("/login/", None)
