@@ -15,18 +15,29 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.views.static import serve
+from django.conf import settings
 from django.views.generic import TemplateView
-from homie.views import homeView, loginView, registerView
+from homie.views import homeView, loginView, registerView, profileView, feedView
 from homie.views import register, login, logout
+from homie.views import profileData
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', homeView),
     url(r'^register/', TemplateView.as_view(template_name='index.html')),
     url(r'^login/', loginView),
-    url(r'^profile/', TemplateView.as_view(template_name='profile.html')),
-    url(r'^feed/', TemplateView.as_view(template_name='feed.html')),
+    url(r'^profile/', profileView),
+    url(r'^feed/', feedView),
     url(r'^account/login/', login),
     url(r'^account/register/', register),
     url(r'^account/logout/$', logout),
+    url(r'^data/profile/$', profileData)
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT,
+        })
+    ]

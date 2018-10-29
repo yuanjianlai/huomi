@@ -1,0 +1,6 @@
+<header buttons="{{profileCtrl.headerButtons}}"></header>
+<div ng-if="!profileCtrl.isLoading">
+  <!-- TODO: implement profile UI -->
+  <input ng-model="profileCtrl.profile.fields.address"></input>
+  <button ng-click="profileCtrl.onSubmit()"></button>
+</div>

@@ -1,13 +1,22 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
   <title></title>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js">
+</script>
+<script type="text/javascript" src="{% static 'src/js/profile-directives.js' %}">
+</script>
+<script type="text/javascript" src="{% static 'src/js/common/common-directives.js' %}">
+</script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/master.css' %}">
 
-<body>
-  <h1>Fill your profile!</h1>
+<body ng-app="profile">
+  <profile-view></profile-view>
 </body>
 
 </html>

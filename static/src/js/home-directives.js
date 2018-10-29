@@ -17,11 +17,11 @@ function HomeBannerController($scope, $http, $window) {
         isTrainer: $scope.homeViewCtrl.isTrainer
       })
       .then(function(response) {
-        if (response.data.success) {
+        if (response.status == 201) {
           $window.location.href = "/profile/";
-        } else if (response.data.reason == "validation_error") {
+        } else if (response.status == 4) {
           //TODO: add warning to warn registration failure.
-        } else if (response.data == "user_exists") {
+        } else if (response.data.reason == "user_exists") {
           //TODO: add warning to warn data validation failure.
         }
       });

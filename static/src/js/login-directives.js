@@ -11,9 +11,8 @@ function LoginViewController($scope, $http, $window, $location) {
         password: this.password
       })
       .then(function(response) {
-        if (response.data == "login.failed.not_found") {
+        if (response.status != 202) {
           //TODO: add warning to warn login failure.
-          console.log(response.data);
         } else {
           $window.location.href = "/feed/";
         }
