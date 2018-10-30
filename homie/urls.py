@@ -18,9 +18,9 @@ from django.contrib import admin
 from django.views.static import serve
 from django.conf import settings
 from django.views.generic import TemplateView
-from homie.views import homeView, loginView, registerView, profileView, feedView
+from homie.views import homeView, loginView, registerView, feedView
 from homie.views import register, login, logout
-from homie.views import profileData
+from homie_user.views import profileData, profileView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

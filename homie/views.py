@@ -5,8 +5,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from homie_user.models import Profile
-from django.core.serializers import serialize, deserialize
 
 import json
 
@@ -42,12 +40,6 @@ def registerView(request):
 def feedView(request):
     user = auth.get_user(request)
     return render(request, 'feed.html', None)
-
-
-@login_required
-def profileView(request):
-    user = auth.get_user(request)
-    return render(request, 'profile.html')
 
 
 def login(request):
@@ -118,36 +110,3 @@ def register(request):
 def logout(request):
     auth.logout(request)
     return redirect("/login/", None)
-
-
-def profileData(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        objs = deserialize('json', json.dumps(data.get("profile", None)))
-        succeed = False
-        status = 204
-        for obj in objs:
-            obj.save()
-            succeed = True
-            status = 200
-            # only one profile should be saved
-            break
-        return JsonResponse({}, status=status)
-    if request.method == 'GET':
-        try:
-            username = request.user
-            user = get_user_model().objects.get(username=username)
-        except get_user_model().DoesNotExist:
-            return JsonResponse({}, status=403)
-        profile = None
-        status = 200
-        try:
-            profile = Profile.objects.get(user_id=user.id)
-        except Profile.DoesNotExist:
-            profile = Profile(user_id=user.id)
-            profile.save()
-            status = 201
-        return JsonResponse({
-            "profile": serialize('json', [profile])
-        },
-                            status=status)
