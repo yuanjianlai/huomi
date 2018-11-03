@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'homie_user',
-    'djng',
-    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [

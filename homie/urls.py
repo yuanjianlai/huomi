@@ -21,7 +21,6 @@ from django.views.generic import TemplateView
 from homie.views import homeView, loginView, registerView, feedView
 from homie.views import register, login, logout
 from homie_user.views import profileData, profileView
-from djng.views.upload import FileUploadView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
