@@ -9,13 +9,14 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.serializers import serialize, deserialize
+from homie_user.models import Profile
 
 
 # Create your views here.
 @login_required
 def profileView(request):
     user = auth.get_user(request)
-    return render(request, 'profile.html')
+    return render(request, 'homie_user/profile.html')
 
 
 def profileData(request):

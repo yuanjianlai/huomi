@@ -1,5 +1,5 @@
 angular
-  .module("profile", ["common"])
+  .module("profile", ["common", "ui.bootstrap"])
   .config(function($httpProvider) {
     $httpProvider.defaults.xsrfCookieName = "csrftoken";
     $httpProvider.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -9,7 +9,7 @@ angular
       restrict: "E",
       scope: true,
       templateUrl: "/static/templates/profile/view.html",
-      controller: function($scope, $window, $http) {
+      controller: function($scope, $window, $http, $log, $document, $uibModal) {
         this.loading = true;
         this.profile = null;
         this.headerButtons = [
