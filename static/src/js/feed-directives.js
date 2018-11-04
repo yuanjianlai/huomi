@@ -11,8 +11,8 @@ angular
       templateUrl: "/static/templates/feed/view.html",
       controller: function($scope, $window) {
         this.headerButtons = [
-          new NavigationButton("退出", "/account/logout/", {}),
-          new NavigationButton("主页", "/profile/", {})
+          new NavigationButton("个人资料", "/profile/", {}),
+          new NavigationButton("退出", "/account/logout/", {})
         ];
       },
       controllerAs: "feedCtrl"

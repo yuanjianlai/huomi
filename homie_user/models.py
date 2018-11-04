@@ -20,7 +20,7 @@ class HomieUser(AbstractUser):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(HomieUser, on_delete=models.CASCADE)
+    user = models.OneToOneField(HomieUser)
     GENDER_UNSPECIFIED = 0
     GENDER_MALE = 1
     GENDER_FEMALE = 2

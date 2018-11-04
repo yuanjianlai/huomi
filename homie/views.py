@@ -107,6 +107,7 @@ def register(request):
             )
 
 
+@login_required
 def logout(request):
     auth.logout(request)
     return redirect("/login/", None)

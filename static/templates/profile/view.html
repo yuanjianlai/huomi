@@ -1,7 +1,10 @@
-<header buttons="{{profileCtrl.headerButtons}}"></header>
+<header buttons="profileCtrl.headerButtons"></header>
 <div ng-if="!profileCtrl.isLoading">
   <!-- TODO: implement profile UI -->
-  <img ng-if="profileCtrl.profile.fiedls.profile_photo" src="{{profileCtrl.profile.fiedls.profile_photo}}">
+  <img ng-if="profileCtrl.profile.fields.profile_photo" ng-src={{profileCtrl.profile.fields.profile_photo}}>
   <input ng-model="profileCtrl.profile.fields.address"></input>
   <button ng-click="profileCtrl.onSubmit()"></button>
 </div>
+
+
+<profile-image-uploader></profile-image-uploader>

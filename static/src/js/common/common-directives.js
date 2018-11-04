@@ -21,11 +21,10 @@ class PostButton {
 angular.module("common", []).directive("header", function() {
   return {
     restrict: "E",
-    scope: true,
+    scope: {buttons: "="},
     templateUrl: "/static/templates/common/header.html",
     controller: function($scope, $http, $window) {
-      this.buttons = null;
-      this.onButtonClicked = function(button) {
+      $scope.onButtonClicked = function(button) {
         if (button.type == "navigate") {
           $window.location.href = button.link;
         } else if (button.type == "ajax") {
@@ -40,10 +39,6 @@ angular.module("common", []).directive("header", function() {
           });
         }
       };
-    },
-    controllerAs: "headerCtrl",
-    link: function(scope, ele, attrs, ctrl) {
-      ctrl.buttons = scope.$eval(attrs["buttons"]);
     }
   };
 });
