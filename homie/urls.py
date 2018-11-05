@@ -20,7 +20,7 @@ from django.conf import settings
 from django.views.generic import TemplateView
 from homie.views import homeView, loginView, registerView, feedView
 from homie.views import register, login, logout
-from homie_user.views import profileData, profileView
+from homie_user.views import profileData, profileView, profilePhoto
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -32,7 +32,8 @@ urlpatterns = [
     url(r'^account/login/', login),
     url(r'^account/register/', register),
     url(r'^account/logout/$', logout),
-    url(r'^data/profile/$', profileData)
+    url(r'^data/profile/$', profileData),
+    url(r'^data/profile/photo/$', profilePhoto)
 ]
 
 if settings.DEBUG:

@@ -19,6 +19,11 @@ class HomieUser(AbstractUser):
     is_trainer = models.BooleanField(default=False)
 
 
+def user_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return 'user_{0}/profile_photo/{1}'.format(instance.user.id, filename)
+
+
 class Profile(models.Model):
     user = models.OneToOneField(HomieUser)
     GENDER_UNSPECIFIED = 0
@@ -26,8 +31,7 @@ class Profile(models.Model):
     GENDER_FEMALE = 2
     ALLOWED_GENDER = ((GENDER_UNSPECIFIED, "Unspecified"),
                       (GENDER_MALE, "Male"), (GENDER_FEMALE, "Female"))
-    profile_photo = models.ImageField(
-        null=True, upload_to="profile_photos/%Y/%m/%D")
+    profile_photo = models.ImageField(null=True, upload_to=user_directory_path)
     address = models.CharField(
         null=True, max_length=1000, validators=[validate_address])
     gender = models.IntegerField(

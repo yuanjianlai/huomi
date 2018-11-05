@@ -43,3 +43,21 @@ def profileData(request):
             status = 201
         return JsonResponse(
             SerializeModelsToJsonMap(profile=[profile]), status=status)
+
+
+@login_required
+def profilePhoto(request):
+    if request.method == 'POST':
+        try:
+            profile = Profile.objects.get(user__username=request.user)
+        except Profile.DoesNotExist:
+            return JsonResponse({}, status=403)
+        profile.profile_photo = request.FILES['photo']
+        profile.save()
+        return JsonResponse({}, status=200)
+    if request.method == 'GET':
+        try:
+            profile = profile.objects.get(user__username=request.user)
+            return HttpResponse(profile.profile_photo.url)
+        except Profile.DoesNotExist:
+            return JsonResponse({}, status=403)
