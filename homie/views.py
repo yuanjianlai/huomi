@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.middleware.csrf import get_token
 
 import json
 
@@ -17,6 +19,7 @@ def homeView(request):
         else:
             return redirect('/login/', None)
     else:
+        get_token(request)
         return render(request, 'home.html', None)
 
 
@@ -25,6 +28,7 @@ def loginView(request):
     if user and user.is_active and user.is_authenticated:
         return redirect('/feed/', None)
     else:
+        get_token(request)
         return render(request, 'login.html', None)
 
 

@@ -4,3 +4,4 @@ media/*
 homie_env/*
 *.json
 node_modules/*
+*/migrations/*

@@ -25,7 +25,6 @@ from homie_user.views import profileData, profileView, profilePhoto
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', homeView),
-    url(r'^register/', TemplateView.as_view(template_name='index.html')),
     url(r'^login/', loginView),
     url(r'^profile/', profileView),
     url(r'^feed/', feedView),
