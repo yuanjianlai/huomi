@@ -34,7 +34,6 @@ ProfileViewController = function(
   this.media_path = "/media/";
   // A django model that contains user's profile data.
   this.profile = null;
-  $scope.photo = "";
   $scope.croppedPhoto = "";
   // Buttons shown on nav bar header.
   this.headerButtons = [
@@ -65,10 +64,7 @@ ProfileViewController = function(
   };
 
   $scope.onFilesChange = function() {
-    console.log($scope.files);
-    if ($scope.files && $scope.files.length == 1) {
-      $scope.photo = $scope.files[0].lfDataUrl;
-    }
+    // Do nothing.
   };
 
   this.submitCroppedPhoto = function() {

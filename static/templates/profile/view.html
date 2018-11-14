@@ -5,10 +5,5 @@
   <input ng-model="profileCtrl.profile.fields.address"></input>
   <button ng-click="profileCtrl.onSubmit()"></button>
 </div>
-<lf-ng-md-file-input lf-files="files" drag preview crop ng-change="onFilesChange()" submit lf-on-submit-click="profileCtrl.submitCroppedPhoto" accept="image/*"></lf-ng-md-file-input>
-<!-- <div ng-if="profileCtrl.profileImg" style="background: #E4E4E4; width:500px; height:350px;"> -->
-<!-- <img-crop ng-show="photo" image="photo" result-image="croppedPhoto"></img-crop> -->
-<!-- </div> -->
-<!-- <div ng-show="photo">
-  <img ng-src="{{croppedPhoto}}" />
-</div> -->
+<lf-ng-md-file-input lf-files="files" drag preview crop cropped-img="croppedPhoto" ng-change="onFilesChange()" submit lf-on-submit-click="profileCtrl.submitCroppedPhoto" accept="image/*">
+</lf-ng-md-file-input>
