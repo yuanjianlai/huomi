@@ -53,7 +53,7 @@ angular
           return this.isTrainer ? "Become A Trainer" : "Sign up to exercise";
         };
         this.headerButtons = [
-          new NavigationButton("登陆", "/login/", {}, null)
+          new NavigationButton("登录", "/login/", {}, null)
         ];
       },
       controllerAs: "homeViewCtrl"

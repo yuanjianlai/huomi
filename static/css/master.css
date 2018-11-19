@@ -50,6 +50,7 @@ body, html {
 
 .header_navbar a {
   color: #ffffff!important;
+  float: right;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -105,6 +106,14 @@ body, html {
   float: right;
 }
 header + * {
-  padding-top: 56px;
+  padding-top: 50px;
   display: block;
+}
+
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: 0;
 }
