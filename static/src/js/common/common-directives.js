@@ -18,12 +18,14 @@ class PostButton {
   }
 }
 
-angular.module("common", []).directive("header", function() {
+angular.module("common", ["ngAnimate", "ngSanitize","ui.bootstrap"]).directive("header", function() {
   return {
     restrict: "E",
     scope: {buttons: "="},
     templateUrl: "/static/templates/common/header.html",
     controller: function($scope, $http, $window) {
+      $scope.isNavCollapsed = true;
+      $scope.isCollapsed = false;
       $scope.onButtonClicked = function(button) {
         if (button.type == "navigate") {
           $window.location.href = button.link;
