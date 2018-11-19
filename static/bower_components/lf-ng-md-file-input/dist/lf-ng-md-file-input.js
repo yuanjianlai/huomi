@@ -525,6 +525,7 @@
 
           scope.removeAllFiles = function(event) {
             scope.removeAllFilesWithoutVaildate();
+            scope.profilePhoto = '';
             executeValidate();
           };
 

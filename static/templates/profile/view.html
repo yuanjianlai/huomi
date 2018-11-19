@@ -1,9 +1,7 @@
 <header buttons="profileCtrl.headerButtons"></header>
-<div ng-if="!profileCtrl.isLoading">
+<div ng-if="!profileCtrl.loading">
   <!-- TODO: implement profile UI -->
-  <img height="42" width="42" ng-if="profileCtrl.profile.fields.profile_photo" ng-src={{profileCtrl.imgUrl(profileCtrl.profile.fields.profile_photo)}}>
+  <img ng-click="openPhotoDialog()" height="42" width="42" class="profile-image" ng-if="profileCtrl.profilePhotoUrl" ng-src={{profileCtrl.profilePhotoUrl}}>
   <input ng-model="profileCtrl.profile.fields.address"></input>
-  <button ng-click="profileCtrl.onSubmit()"></button>
+  <button ng-click="onSubmit()"></button>
 </div>
-<lf-ng-md-file-input lf-files="files" drag preview crop cropped-img="croppedPhoto" ng-change="onFilesChange()" submit lf-on-submit-click="profileCtrl.submitCroppedPhoto" accept="image/*">
-</lf-ng-md-file-input>

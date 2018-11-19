@@ -3,7 +3,7 @@
     <md-button aria-label="remove all files" class="close lf-ng-md-file-input-x" ng-click="removeAllFiles($event)" ng-hide="!lfFiles.length || !isPreview">&times;</md-button>
     <div class="lf-ng-md-file-input-drag">
       <div layout="row" layout-align="center center" class="lf-ng-md-file-input-drag-text-container" ng-show="(!lfFiles.length || !isPreview) && isDrag">
-        <div class="lf-ng-md-file-input-drag-text">{{strCaptionDragAndDrop}}</div>
+        <div class="lf-ng-md-file-input-drag-text">拖拽照片至此</div>
       </div>
       <div class="lf-ng-md-file-input-thumbnails" ng-if="isPreview">
         <div ng-show="!profilePhoto" class="lf-ng-md-file-input-frame" ng-repeat="lffile in lfFiles" ng-click="onFileClick(lffile)">
@@ -16,14 +16,10 @@
       </div>
       <div class="clearfix" style="clear:both"></div>
     </div>
-    <img-crop class="lf-ng-md-file-input-frame" image="profilePhoto" result-image="croppedImg"></img-crop>
+    <img-crop ng-show="profilePhoto" class="lf-ng-md-file-input-frame" image="profilePhoto" result-image="croppedImg"></img-crop>
   </div>
   <div layout="row" class="lf-ng-md-file-input-container">
     <div class="lf-ng-md-file-input-caption" layout="row" layout-align="start center" flex ng-class="{'disabled':isDisabled}">
-      <md-icon class="lf-icon" ng-class="strCaptionIconCls"></md-icon>
-      <div flex class="lf-ng-md-file-input-caption-text-default" ng-show="!lfFiles.length">
-        {{strCaptionPlaceholder}}
-      </div>
       <div flex class="lf-ng-md-file-input-caption-text" ng-hide="!lfFiles.length">
         <span ng-if="isCustomCaption">{{strCaption}}</span>
         <span ng-if="!isCustomCaption">
@@ -32,18 +28,15 @@
       </div>
       <md-progress-linear md-mode="determinate" value="{{floatProgress}}" ng-show="intLoading && isProgress"></md-progress-linear>
     </div>
-    <md-button aria-label="remove all files" ng-disabled="isDisabled" ng-click="removeAllFiles()" ng-hide="!lfFiles.length || intLoading" class="md-raised lf-ng-md-file-input-button lf-ng-md-file-input-button-remove" ng-class="strRemoveButtonCls">
-      <md-icon class="lf-icon" ng-class="strRemoveIconCls"></md-icon>
-      {{strCaptionRemove}}
-    </md-button>
-    <md-button aria-label="submit" ng-disabled="isDisabled" ng-click="onSubmitClick()" class="md-raised md-warn lf-ng-md-file-input-button lf-ng-md-file-input-button-submit" ng-class="strSubmitButtonCls" ng-show="lfFiles.length && !intLoading && isSubmit">
-      <md-icon class="lf-icon" ng-class="strSubmitIconCls"></md-icon>
-      {{strCaptionSubmit}}
-    </md-button>
-    <md-button aria-label="browse" ng-disabled="isDisabled" ng-click="openDialog($event, this)" class="md-raised lf-ng-md-file-input-button lf-ng-md-file-input-button-brower" ng-class="strBrowseButtonCls">
-      <md-icon class="lf-icon" ng-class="strBrowseIconCls"></md-icon>
-      {{strCaptionBrowse}}
+    <button aria-label="remove all files" ng-disabled="isDisabled" ng-click="removeAllFiles()" ng-hide="!lfFiles.length || intLoading" class="btn btn-danger" ng-class="strRemoveButtonCls">
+      删除
+    </button>
+    <button ng-show="lfFiles.length && !intLoading && isSubmit" ng-click="onSubmitClick()" type="button" class="btn btn-primary">
+      确认
+    </button>
+    <label aria-label="browse" ng-disabled="isDisabled" ng-click="openDialog($event, this)" class="btn btn-info" ng-class="strBrowseButtonCls">
+      浏览
       <input type="file" aria-label="{{strAriaLabel}}" accept="{{accept}}" ng-disabled="isDisabled" class="lf-ng-md-file-input-tag" />
-    </md-button>
+    </label>
   </div>
 </div>

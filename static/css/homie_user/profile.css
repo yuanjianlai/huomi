@@ -19,3 +19,11 @@
 .dragover {
     border: 5px dashed blue;
 }
+.profile-image {
+  border-radius: 50%;
+  width: 10%;
+  height: 10%;
+  padding-top: 5px;
+  padding-left: 5px;
+  cursor: pointer;
+}

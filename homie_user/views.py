@@ -54,7 +54,7 @@ def profilePhoto(request):
             return JsonResponse({}, status=403)
         profile.profile_photo = request.FILES['photo']
         profile.save()
-        return JsonResponse({}, status=200)
+        return JsonResponse({'url': profile.profile_photo.url}, status=200)
     if request.method == 'GET':
         try:
             profile = profile.objects.get(user__username=request.user)

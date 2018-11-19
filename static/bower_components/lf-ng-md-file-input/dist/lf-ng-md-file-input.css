@@ -171,27 +171,15 @@
   -webkit-border-radius: 0;
   border-radius: 0 0 0 0;
 }
-.lf-ng-md-file-input .lf-ng-md-file-input-container .md-raised.lf-ng-md-file-input-button .lf-ng-md-file-input-tag {
+.lf-ng-md-file-input .lf-ng-md-file-input-container .lf-ng-md-file-input-tag {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   display: block;
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  background: none repeat scroll 0 0 transparent;
-  cursor: inherit;
-}
-.lf-ng-md-file-input .lf-ng-md-file-input-container .md-raised .lf-ng-md-file-input-tag {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
+  /* min-width: 100%;
+  min-height: 100%; */
   background: none repeat scroll 0 0 transparent;
   cursor: inherit;
 }
